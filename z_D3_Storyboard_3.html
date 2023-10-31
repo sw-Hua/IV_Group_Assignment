@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>Stroyboard</title>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<link rel="stylesheet" href="_D3_stack_area_chart_.css">
+
+<body>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <!-- Title Row with Border -->
+    <div class="container border mb-4">
+        <h1>Title /_D3_Storyboard_gdp.html</h1>
+    </div>
+
+    <!-- Story Row with Border -->
+    <div class="container border mb-4">
+        <p>Story content goes here. xxxxxxxxx</p>
+    </div>
+    <div class="container border mb-4">
+        <!-- 添加个导航栏 -->
+            <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <!-- <a class="navbar-brand" href="#">Stroyboards</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Bootstrap中用于创建响应式导航栏的一部分，
+            它是导航栏的折叠按钮（hamburger 按钮），
+            当屏幕宽度较小时，导航栏内容将被隐藏，
+            而点击这个按钮则会展开导航栏。它是非常有作用的，
+            特别是在移动设备上，以提供更好的用户体验。 -->
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/z_index.html">Stroyboard 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/z_D3_Storyboard_gdp.html">Stroyboard 2</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/z_D3_Storyboard_3.html">Stroyboard 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/z_D3_Storyboard_gdp.html">Stroyboard 4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/z_D3_Storyboard_gdp.html">Stroyboard 5</a>
+                </li>
+                <!-- Add more story links as needed -->
+            </ul>
+        </div>
+    </nav>
+    </div>
+
+    <div class="container border mb-4">
+        <p>Story content goes here. xxxxxxxxx</p>
+            <div id="stack-area-container-continent"></div>
+            <script src="_D3_stack_area_chart_continent.js"></script>
+        
+    </div>
+    <div class="container border mb-4">
+        <p>Story content goes here. xxxxxxxxx</p>    
+            <div id="stack-area-container-main-country"></div>
+            <script src="_D3_stack_area_chart_main_country.js"></script>
+        
+    </div>
+    <div class="container border mb-4">
+        <p>Story content goes here. xxxxxxxxx</p>    
+        <div id="stack-area-container-propotion"></div>
+        <script src="_D3_stack_area_chart_propotion.js"></script>
+        
+    </div>
+
+
+
+
+
+
+    <!-- Main Content Row with Two Columns -->
+    <div class="container border">
+        <div class="row">
+            <!-- Left Column for Scatter Plot with Border -->
+            <div class="col-6 border">
+                <!-- Your Scatter Plot Content Goes Here -->
+                <p>其他chart1</p>
+                <h1>123</h1>
+            </div>
+
+            <!-- Right Column for Pie Chart with Border -->
+            <div class="col-6 border">
+                <!-- Your Pie Chart Content Goes Here -->
+                <p>其他chart2</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
