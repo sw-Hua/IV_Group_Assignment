@@ -13,48 +13,54 @@ piechart.init = function() {
     var g = svg.append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    // Pie Chart 的代码部分，请确保使用 piechart 命名空间来定义变量和函数
-    // 避免使用全局变量
     var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
 
-var pie = d3.pie().value(function(d) { 
-    return d.percentage; 
-});
+    var pie = d3.pie().value(function(d) { 
+        return d.percentage; 
+    });
 
-var path = d3.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(150);
+    var path = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(150);
 
-var label = d3.arc()
-    .outerRadius(radius)
-    .innerRadius(radius - 80);
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-d3.csv("gdpFactor.csv", function(error, data) {
-    if (error) {
-        throw error;
-    }
-    var arc = g.selectAll(".edit")
-        .data(pie(data))
-        .enter().append("g")
-        .attr("class", "edit");
+    d3.csv("gdpFactor.csv", function(error, data) {
+        if (error) {
+            throw error;
+        }
+        var arc = g.selectAll(".edit")
+            .data(pie(data))
+            .enter().append("g")
+            .attr("class", "edit");
 
-    arc.append("path")
-        .attr("d", path)
-        .attr("fill", function(d) { return color(d.data.factor); });
+        arc.append("path")
+            .attr("d", path)
+            .attr("fill", function(d) { return color(d.data.factor); })
+            .on("mouseover", function(d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html("Factor: " + d.data.factor + "<br/>Percentage: " + d.data.percentage + "%")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+    });
 
-    arc.append("text")
-        .attr("transform", function(d) { 
-            return "translate(" + label.centroid(d) + ")"; 
-        })
-        .text(function(d) { return d.data.factor; });
-});
-
-svg.append("g")
-    .attr("transform", "translate(" + (width / 2 - 120) + "," + 20 + ")")
-    .append("text")
-    .text("Singapore Economy Factor GDP - 2022")
-    .attr("class", "title");
+    svg.append("g")
+        .attr("transform", "translate(" + (width / 2 - 120) + "," + 20 + ")")
+        .append("text")
+        .text("Singapore Economy Factor GDP")
+        .attr("class", "title")
+        .attr("y", 180);
+    
 };
 
 piechart.init();
-
