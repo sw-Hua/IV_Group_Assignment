@@ -13,7 +13,7 @@ piechart.init = function() {
     var g = svg.append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+    var color = d3.scaleOrdinal(['#dc868d', '#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
 
     var pie = d3.pie().value(function(d) { 
         return d.percentage; 
@@ -45,7 +45,10 @@ piechart.init = function() {
                     .style("opacity", .9);
                 tooltip.html("Factor: " + d.data.factor + "<br/>Percentage: " + d.data.percentage + "%")
                     .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
+                    .style("top", (d3.event.pageY - 28) + "px")
+                    .style("color", "#ffff")
+                    .style("background-color", color(d.data.factor));
+                    
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
